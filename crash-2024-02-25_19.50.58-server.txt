@@ -1,0 +1,294 @@
+---- Minecraft Crash Report ----
+// Daisy, daisy...
+
+Time: 2024-02-25 19:50:58
+Description: Ticking block entity
+
+java.lang.IllegalArgumentException: Transfer variant may not be blank.
+	at net.fabricmc.fabric.api.transfer.v1.storage.StoragePreconditions.notBlank(StoragePreconditions.java:39)
+	at net.fabricmc.fabric.api.transfer.v1.storage.StoragePreconditions.notBlankNotNegative(StoragePreconditions.java:58)
+	at net.fabricmc.fabric.api.transfer.v1.item.base.SingleStackStorage.extract(SingleStackStorage.java:136)
+	at net.fabricmc.fabric.api.transfer.v1.item.base.SingleStackStorage.extract(SingleStackStorage.java:42)
+	at io.github.fabricators_of_create.porting_lib.transfer.TransferUtil.clearStorage(TransferUtil.java:343)
+	at com.simibubi.create.content.contraptions.MountedStorageManager.clear(MountedStorageManager.java:189)
+	at com.simibubi.create.content.contraptions.Contraption.addBlocksToWorld(Contraption.java:1132)
+	at com.simibubi.create.content.contraptions.AbstractContraptionEntity.disassemble(AbstractContraptionEntity.java:667)
+	at com.simibubi.create.content.contraptions.piston.MechanicalPistonBlockEntity.disassemble(MechanicalPistonBlockEntity.java:104)
+	at com.simibubi.create.content.contraptions.piston.LinearActuatorBlockEntity.tryDisassemble(LinearActuatorBlockEntity.java:296)
+	at com.simibubi.create.content.contraptions.piston.LinearActuatorBlockEntity.collided(LinearActuatorBlockEntity.java:324)
+	at com.simibubi.create.content.contraptions.piston.MechanicalPistonBlockEntity.collided(MechanicalPistonBlockEntity.java:118)
+	at com.simibubi.create.content.contraptions.piston.LinearActuatorBlockEntity.tick(LinearActuatorBlockEntity.java:143)
+	at com.simibubi.create.foundation.blockEntity.SmartBlockEntityTicker.tick(SmartBlockEntityTicker.java:15)
+	at net.minecraft.class_2818$class_5563.method_31703(class_2818.java:662)
+	at net.minecraft.class_2818$class_5564.method_31703(class_2818.java:716)
+	at net.minecraft.class_1937.method_18471(class_1937.java:470)
+	at net.minecraft.class_3218.method_18765(class_3218.java:390)
+	at net.minecraft.server.MinecraftServer.method_3813(MinecraftServer.java:897)
+	at net.minecraft.class_3176.method_3813(class_3176.java:283)
+	at net.minecraft.server.MinecraftServer.method_3748(MinecraftServer.java:824)
+	at net.minecraft.server.MinecraftServer.method_29741(MinecraftServer.java:671)
+	at net.minecraft.server.MinecraftServer.method_29739(MinecraftServer.java:265)
+	at java.base/java.lang.Thread.run(Unknown Source)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Server thread
+Stacktrace:
+	at net.fabricmc.fabric.api.transfer.v1.storage.StoragePreconditions.notBlank(StoragePreconditions.java:39)
+	at net.fabricmc.fabric.api.transfer.v1.storage.StoragePreconditions.notBlankNotNegative(StoragePreconditions.java:58)
+	at net.fabricmc.fabric.api.transfer.v1.item.base.SingleStackStorage.extract(SingleStackStorage.java:136)
+	at net.fabricmc.fabric.api.transfer.v1.item.base.SingleStackStorage.extract(SingleStackStorage.java:42)
+	at io.github.fabricators_of_create.porting_lib.transfer.TransferUtil.clearStorage(TransferUtil.java:343)
+	at com.simibubi.create.content.contraptions.MountedStorageManager.clear(MountedStorageManager.java:189)
+	at com.simibubi.create.content.contraptions.Contraption.addBlocksToWorld(Contraption.java:1132)
+	at com.simibubi.create.content.contraptions.AbstractContraptionEntity.disassemble(AbstractContraptionEntity.java:667)
+	at com.simibubi.create.content.contraptions.piston.MechanicalPistonBlockEntity.disassemble(MechanicalPistonBlockEntity.java:104)
+	at com.simibubi.create.content.contraptions.piston.LinearActuatorBlockEntity.tryDisassemble(LinearActuatorBlockEntity.java:296)
+	at com.simibubi.create.content.contraptions.piston.LinearActuatorBlockEntity.collided(LinearActuatorBlockEntity.java:324)
+	at com.simibubi.create.content.contraptions.piston.MechanicalPistonBlockEntity.collided(MechanicalPistonBlockEntity.java:118)
+	at com.simibubi.create.content.contraptions.piston.LinearActuatorBlockEntity.tick(LinearActuatorBlockEntity.java:143)
+	at com.simibubi.create.foundation.blockEntity.SmartBlockEntityTicker.tick(SmartBlockEntityTicker.java:15)
+	at net.minecraft.class_2818$class_5563.method_31703(class_2818.java:662)
+	at net.minecraft.class_2818$class_5564.method_31703(class_2818.java:716)
+	at net.minecraft.class_1937.method_18471(class_1937.java:470)
+	at net.minecraft.class_3218.method_18765(class_3218.java:390)
+
+-- Block entity being ticked --
+Details:
+	Name: create:mechanical_piston // com.simibubi.create.content.contraptions.piston.MechanicalPistonBlockEntity
+	Block: Block{create:sticky_mechanical_piston}[axis_along_first=false,facing=west,state=extended]
+	Block location: World: (-401,59,67), Section: (at 15,11,3 in -26,3,4; chunk contains blocks -416,-64,64 to -401,319,79), Region: (-1,0; contains chunks -32,0 to -1,31, blocks -512,-64,0 to -1,319,511)
+	Block: Block{create:sticky_mechanical_piston}[axis_along_first=false,facing=west,state=extended]
+	Block location: World: (-401,59,67), Section: (at 15,11,3 in -26,3,4; chunk contains blocks -416,-64,64 to -401,319,79), Region: (-1,0; contains chunks -32,0 to -1,31, blocks -512,-64,0 to -1,319,511)
+Stacktrace:
+	at net.minecraft.class_2818$class_5563.method_31703(class_2818.java:662)
+	at net.minecraft.class_2818$class_5564.method_31703(class_2818.java:716)
+	at net.minecraft.class_1937.method_18471(class_1937.java:470)
+	at net.minecraft.class_3218.method_18765(class_3218.java:390)
+	at net.minecraft.server.MinecraftServer.method_3813(MinecraftServer.java:897)
+	at net.minecraft.class_3176.method_3813(class_3176.java:283)
+	at net.minecraft.server.MinecraftServer.method_3748(MinecraftServer.java:824)
+	at net.minecraft.server.MinecraftServer.method_29741(MinecraftServer.java:671)
+	at net.minecraft.server.MinecraftServer.method_29739(MinecraftServer.java:265)
+	at java.base/java.lang.Thread.run(Unknown Source)
+
+-- Affected level --
+Details:
+	All players: 3 total; [class_3222['Minegames'/377, l='ServerLevel[world]', x=-62.43, y=66.00, z=-89.79], class_3222['Tag_Ti'/26693, l='ServerLevel[world]', x=-388.99, y=64.00, z=62.83], class_3222['Monstrox12'/25122, l='ServerLevel[world]', x=-15.27, y=64.57, z=7.10]]
+	Chunk stats: 5651
+	Level dimension: minecraft:overworld
+	Level spawn location: World: (16,68,-16), Section: (at 0,4,0 in 1,4,-1; chunk contains blocks 16,-64,-16 to 31,319,-1), Region: (0,-1; contains chunks 0,-32 to 31,-1, blocks 0,-64,-512 to 511,319,-1)
+	Level time: 4749757 game time, 6107429 day time
+	Level name: world
+	Level game mode: Game mode: survival (ID 0). Hardcore: false. Cheats: false
+	Level weather: Rain time: 119246 (now: false), thunder time: 4750 (now: false)
+	Known server brands: fabric
+	Removed feature flags: 
+	Level was modded: true
+	Level storage version: 0x04ABD - Anvil
+Stacktrace:
+	at net.minecraft.server.MinecraftServer.method_3813(MinecraftServer.java:897)
+	at net.minecraft.class_3176.method_3813(class_3176.java:283)
+	at net.minecraft.server.MinecraftServer.method_3748(MinecraftServer.java:824)
+	at net.minecraft.server.MinecraftServer.method_29741(MinecraftServer.java:671)
+	at net.minecraft.server.MinecraftServer.method_29739(MinecraftServer.java:265)
+	at java.base/java.lang.Thread.run(Unknown Source)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.20.1
+	Minecraft Version ID: 1.20.1
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 17.0.3, Eclipse Adoptium
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Eclipse Adoptium
+	Memory: 1913900712 bytes (1825 MiB) / 6924795904 bytes (6604 MiB) up to 6924795904 bytes (6604 MiB)
+	CPUs: 8
+	Processor Vendor: GenuineIntel
+	Processor Name: Intel(R) Core(TM) i7-6920HQ CPU @ 2.90GHz
+	Identifier: Intel64 Family 6 Model 94 Stepping 3
+	Microarchitecture: Skylake (Client)
+	Frequency (GHz): 2.90
+	Number of physical packages: 1
+	Number of physical CPUs: 4
+	Number of logical CPUs: 8
+	Graphics card #0 name: Microsoft Basic Display Adapter
+	Graphics card #0 vendor: (Standardgrafikkartentypen) (0x1002)
+	Graphics card #0 VRAM (MB): 0.00
+	Graphics card #0 deviceId: 0x67ef
+	Graphics card #0 versionInfo: DriverVersion=10.0.19041.3636
+	Memory slot #0 capacity (MB): 8192.00
+	Memory slot #0 clockSpeed (GHz): 2.13
+	Memory slot #0 type: LPDDR3
+	Memory slot #1 capacity (MB): 8192.00
+	Memory slot #1 clockSpeed (GHz): 2.13
+	Memory slot #1 type: LPDDR3
+	Virtual memory max (MB): 18641.07
+	Virtual memory used (MB): 10933.29
+	Swap memory total (MB): 2360.58
+	Swap memory used (MB): 52.72
+	JVM Flags: 2 total; -Xms6603M -Xmx6603M
+	Fabric Mods: 
+		architectury: Architectury 9.1.13
+		balm-fabric: Balm 7.2.1
+		bclib: BCLib 3.0.14
+			wunderlib: WunderLib 1.1.5
+		bellsandwhistles: Create: Bells & Whistles 0.4.5
+		betterend: Better End 4.0.11
+		betternether: Better Nether 9.0.10
+		biomemakeover: Biome Makeover 1.20.1-1.11.4
+			taniwha: Taniwha 1.20.0-5.4.4
+		botarium: Botarium 3.0.7
+			team_reborn_energy: Energy 3.0.0
+		carryon: Carry On 2.1.2.7
+		coroutil: CoroUtil 1.20.1-1.3.7
+			forgeconfigapiport: Forge Config API Port 8.0.0
+		crafttweaker: CraftTweaker 14.0.33
+			org_javassist_javassist: javassist 3.29.0-GA
+			org_reflections_reflections: reflections 0.10.2
+		create: Create 0.5.1-d-build.1161+mc1.20.1
+			com_electronwill_night-config_core: core 3.6.3
+			com_electronwill_night-config_toml: toml 3.6.3
+			com_google_code_findbugs_jsr305: jsr305 3.0.2
+			milk: Milk Lib 1.2.60
+				dripstone_fluid_lib: Dripstone Fluid Lib 3.0.2
+			porting_lib_accessors: Porting Lib Accessors 2.1.1127+1.20
+			porting_lib_base: Porting Lib Base 2.1.1127+1.20
+				porting_lib_lazy_registration: Porting Lib Lazy Register 2.1.1127+1.20
+				porting_lib_utility: Porting Lib Utility 2.1.1127+1.20
+			porting_lib_brewing: Porting Lib Brewing 2.1.1127+1.20
+			porting_lib_client_events: Porting Lib Client Events 2.1.1127+1.20
+				mm: Manningham Mills 2.3
+			porting_lib_entity: Porting Lib Entity 2.1.1127+1.20
+				porting_lib_core: Porting Lib Core 2.1.1127+1.20
+				porting_lib_gametest: Porting Lib GameTest 2.1.1127+1.20
+				porting_lib_mixin_extensions: Porting Lib Mixin Extensions 2.1.1127+1.20
+			porting_lib_extensions: Porting Lib Extensions 2.1.1127+1.20
+				porting_lib_attributes: Porting Lib Attributes 2.1.1127+1.20
+				porting_lib_common: Porting Lib Common 2.1.1127+1.20
+			porting_lib_fake_players: Porting Lib Fake Players 2.1.1127+1.20
+			porting_lib_models: Porting Lib Models 2.1.1127+1.20
+			porting_lib_networking: Porting Lib Networking 2.1.1127+1.20
+			porting_lib_obj_loader: Porting Lib Obj Loader 2.1.1127+1.20
+				porting_lib_model_loader: Porting Lib Model Loader 2.1.1127+1.20
+			porting_lib_tags: Porting Lib Tags 3.0
+			porting_lib_tool_actions: Porting Lib Tool Actions 2.1.1127+1.20
+			porting_lib_transfer: Porting Lib Transfer 2.1.1127+1.20
+			reach-entity-attributes: Reach Entity Attributes 2.4.0
+			registrate-fabric: Registrate for Fabric 1.3.62-MC1.20.1
+				porting_lib_data: Porting Lib Data 2.1.1090+1.20
+				porting_lib_model_generators: Porting Lib Model Generators 2.1.1090+1.20
+					porting_lib_model_materials: Porting Lib Model Materials 2.1.1090+1.20
+		create_enchantment_industry: Create Enchantment Industry 1.2.12
+			create_dragon_lib: Create Dragon Lib 1.4.1
+		create_jetpack: Create Jetpack 4.1.0
+			flightlib: Flight Lib 2.0.3
+		createdeco: Create Deco 2.0.1-1.20.1-fabric
+		createdieselgenerators: Create Diesel Generators 2.1.3
+		createoreexcavation: Create Ore Excavation 1.4.3
+			chunk-storage-api-fabric: Chunk Storage Api Fabric 1.0.4
+		createtweaker: CreateTweaker 4.0.7
+		cristellib: Cristel Lib 1.1.5
+			blue_endless_jankson: jankson 1.2.3
+		culturalcreators: Cultural Creators 1.0.0
+		delightfulcreators: Delightful Creators 1.1.8
+		dungeons_arise: When Dungeons Arise 2.1.58
+		ecologics: Ecologics 2.2.0
+			cloth-config: Cloth Config v11 11.1.106
+				cloth-basic-math: cloth-basic-math 0.6.1
+		egg-of-capitalism: Egg Of Capitalism 4.0
+		fabric-api: Fabric API 0.92.0+1.20.1
+			fabric-api-base: Fabric API Base 0.4.31+1802ada577
+			fabric-api-lookup-api-v1: Fabric API Lookup API (v1) 1.6.36+1802ada577
+			fabric-biome-api-v1: Fabric Biome API (v1) 13.0.13+1802ada577
+			fabric-block-api-v1: Fabric Block API (v1) 1.0.11+1802ada577
+			fabric-block-view-api-v2: Fabric BlockView API (v2) 1.0.1+1802ada577
+			fabric-command-api-v1: Fabric Command API (v1) 1.2.34+f71b366f77
+			fabric-command-api-v2: Fabric Command API (v2) 2.2.13+1802ada577
+			fabric-commands-v0: Fabric Commands (v0) 0.2.51+df3654b377
+			fabric-containers-v0: Fabric Containers (v0) 0.1.64+df3654b377
+			fabric-content-registries-v0: Fabric Content Registries (v0) 4.0.11+1802ada577
+			fabric-convention-tags-v1: Fabric Convention Tags 1.5.5+1802ada577
+			fabric-crash-report-info-v1: Fabric Crash Report Info (v1) 0.2.19+1802ada577
+			fabric-data-attachment-api-v1: Fabric Data Attachment API (v1) 1.0.0+de0fd6d177
+			fabric-data-generation-api-v1: Fabric Data Generation API (v1) 12.3.4+1802ada577
+			fabric-dimensions-v1: Fabric Dimensions API (v1) 2.1.54+1802ada577
+			fabric-entity-events-v1: Fabric Entity Events (v1) 1.6.0+1c78457f77
+			fabric-events-interaction-v0: Fabric Events Interaction (v0) 0.6.2+1802ada577
+			fabric-events-lifecycle-v0: Fabric Events Lifecycle (v0) 0.2.63+df3654b377
+			fabric-game-rule-api-v1: Fabric Game Rule API (v1) 1.0.40+1802ada577
+			fabric-item-api-v1: Fabric Item API (v1) 2.1.28+1802ada577
+			fabric-item-group-api-v1: Fabric Item Group API (v1) 4.0.12+1802ada577
+			fabric-lifecycle-events-v1: Fabric Lifecycle Events (v1) 2.2.22+1802ada577
+			fabric-loot-api-v2: Fabric Loot API (v2) 1.2.1+1802ada577
+			fabric-loot-tables-v1: Fabric Loot Tables (v1) 1.1.45+9e7660c677
+			fabric-message-api-v1: Fabric Message API (v1) 5.1.9+1802ada577
+			fabric-mining-level-api-v1: Fabric Mining Level API (v1) 2.1.50+1802ada577
+			fabric-networking-api-v1: Fabric Networking API (v1) 1.3.11+1802ada577
+			fabric-networking-v0: Fabric Networking (v0) 0.3.51+df3654b377
+			fabric-object-builder-api-v1: Fabric Object Builder API (v1) 11.1.3+1802ada577
+			fabric-particles-v1: Fabric Particles (v1) 1.1.2+1802ada577
+			fabric-recipe-api-v1: Fabric Recipe API (v1) 1.0.21+1802ada577
+			fabric-registry-sync-v0: Fabric Registry Sync (v0) 2.3.3+1802ada577
+			fabric-rendering-data-attachment-v1: Fabric Rendering Data Attachment (v1) 0.3.37+92a0d36777
+			fabric-rendering-fluids-v1: Fabric Rendering Fluids (v1) 3.0.28+1802ada577
+			fabric-resource-conditions-api-v1: Fabric Resource Conditions API (v1) 2.3.8+1802ada577
+			fabric-resource-loader-v0: Fabric Resource Loader (v0) 0.11.10+1802ada577
+			fabric-screen-handler-api-v1: Fabric Screen Handler API (v1) 1.3.30+1802ada577
+			fabric-transfer-api-v1: Fabric Transfer API (v1) 3.3.4+1802ada577
+			fabric-transitive-access-wideners-v1: Fabric Transitive Access Wideners (v1) 4.3.1+1802ada577
+		fabric-language-kotlin: Fabric Language Kotlin 1.10.17+kotlin.1.9.22
+			org_jetbrains_kotlin_kotlin-reflect: kotlin-reflect 1.9.22
+			org_jetbrains_kotlin_kotlin-stdlib: kotlin-stdlib 1.9.22
+			org_jetbrains_kotlin_kotlin-stdlib-jdk7: kotlin-stdlib-jdk7 1.9.22
+			org_jetbrains_kotlin_kotlin-stdlib-jdk8: kotlin-stdlib-jdk8 1.9.22
+			org_jetbrains_kotlinx_atomicfu-jvm: atomicfu-jvm 0.23.1
+			org_jetbrains_kotlinx_kotlinx-coroutines-core-jvm: kotlinx-coroutines-core-jvm 1.7.3
+			org_jetbrains_kotlinx_kotlinx-coroutines-jdk8: kotlinx-coroutines-jdk8 1.7.3
+			org_jetbrains_kotlinx_kotlinx-datetime-jvm: kotlinx-datetime-jvm 0.5.0
+			org_jetbrains_kotlinx_kotlinx-serialization-cbor-jvm: kotlinx-serialization-cbor-jvm 1.6.2
+			org_jetbrains_kotlinx_kotlinx-serialization-core-jvm: kotlinx-serialization-core-jvm 1.6.2
+			org_jetbrains_kotlinx_kotlinx-serialization-json-jvm: kotlinx-serialization-json-jvm 1.6.2
+		fabricloader: Fabric Loader 0.15.7
+			mixinextras: MixinExtras 0.3.5
+		friendsandfoes: Friends&Foes 2.0.9
+		geckolib: GeckoLib 4 4.4.2
+			com_eliotlash_mclib_mclib: mclib 20
+		geyser-fabric: Geyser-Fabric 2.2.0-SNAPSHOT
+			fabric-permissions-api-v0: fabric-permissions-api 0.2-SNAPSHOT
+		invview: InvView 1.4.12-1.20+
+			sgui: sgui 1.2.2+1.20
+		java: OpenJDK 64-Bit Server VM 17
+		lithium: Lithium 0.11.2
+		midnightlib: MidnightLib 1.4.1
+		minecraft: Minecraft 1.20.1
+		naturalist: Naturalist 4.0.3
+		respitecreators: Respite Creators 1.2.0
+		roughlyenoughitems: Roughly Enough Items 12.0.684
+			error_notifier: Error Notifier 1.0.9
+		simplemod: SimpleMod 1.20.1
+		smallships: Small Ships 2.0.0-b1.0
+		styledplayerlist: Styled Player List 3.1.1+1.20.1
+			placeholder-api: Placeholder API 2.1.1+1.20
+			player-data-api: Player Data API 0.2.2+1.19.3
+			predicate-api: Predicate API 0.1.2+1.20
+		t_and_t: Towns and Towers 1.12
+		the_bumblezone: The Bumblezone - Fabric 7.2.10+1.20.1-fabric
+			athena: Athena 3.1.1
+			cardinal-components-base: Cardinal Components API (base) 5.2.0
+			cardinal-components-entity: Cardinal Components API (entities) 5.2.0
+		travelersbackpack: Traveler's Backpack 1.20.1-9.1.9
+		voicechat: Simple Voice Chat 1.20.1-2.5.5
+		watut: What Are They Up To 1.20.1-1.1.0
+		waystones: Waystones 14.1.3
+		xaerominimap: Xaero's Minimap 23.9.7
+		xaeroworldmap: Xaero's World Map 1.37.8
+	Server Running: true
+	Player Count: 3 / 20; [class_3222['Minegames'/377, l='ServerLevel[world]', x=-62.43, y=66.00, z=-89.79], class_3222['Monstrox12'/25122, l='ServerLevel[world]', x=-15.27, y=64.57, z=7.10], class_3222['Tag_Ti'/26693, l='ServerLevel[world]', x=-388.99, y=64.00, z=62.83]]
+	Data Packs: vanilla, fabric, resources/t_and_t_waystones_patch_1.19.2 (incompatible), file/fast leaf decay v2.0.9 (MC 1.20-1.20.4).zip, file/graves v2.8.10 (MC 1.20-1.20.4).zip, file/homes v1.5.7 (MC 1.20-1.20.4).zip, file/tpa v2.3.6 (MC 1.20-1.20.4).zip
+	Enabled Feature Flags: minecraft:vanilla
+	World Generation: Experimental
+	Is Modded: Definitely; Server brand changed to 'fabric'
+	Type: Dedicated Server (map_server.txt)
